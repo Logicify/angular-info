@@ -1,0 +1,41 @@
+<form name='userForm' class="form-horizontal">
+    <h4 class="text-center">Fill fields bellow!</h4>
+
+    <div class="control-group">
+        <div class="control-label">First Name:</div>
+
+        <div class='controls'>
+            <input type="text" name="firstName" value="{{user.firstName}}"
+                   placeholder="Set First Name for User" ng-required="true" ng-model="user.firstName">
+            <span class="error" ng-show="userForm.firstName.$error.required">This field required</span>
+        </div>
+    </div>
+
+    <div class='control-group'>
+        <div class='control-label'>Last Name: </div>
+        <div class='controls'>
+            <input type='text' name='lastName' value="{{user.lastName}}"
+                   ng-model="user.lastName" placeholder="Set Last Name for User" ng-required="true">
+            <span class='error' ng-show="userForm.lastName.$error.required">This field required</span>
+        </div>
+    </div>
+
+    <div class=control-group>
+        <div class='control-label'>e-mail: </div>
+        <div class='controls'>
+            <input type='email' name='email' value='{{user.email}}' ng-required="true"
+                    placeholder="Set e-mail for User" ng-model="user.email">
+            <span class='error' ng-show='userForm.email.$error.required'>This field required</span>
+            <span class='error' ng-show='userForm.email.$error.email'>Wrong e-mail specified</span>
+        </div>
+    </div>
+
+    <div class='control-group' ng-show="userForm.$valid">
+        <div class='controls'>
+            <button ng-click="edit(user)" class='btn' ng-show="user._id">Edit</button>
+            <button ng-click="delete(user)" class='btn' ng-show="user._id">Delete</button>
+            <button ng-click="save(user)" class='btn' ng-hide="user._id">Add</button>
+        </div>
+    </div>
+
+</form>
