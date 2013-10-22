@@ -1,0 +1,19 @@
+<section class='container'>
+    <div class="row" ng-controller="Start">
+        <aside class="span4">
+            <section class='left-aside'>
+                <header>
+                    <h4 class="page-header" draggable>Hello, everybody!</h4>
+                    <p>
+                        Here is a simple Angular project.<br>
+                        This prototype page use different approaches to grab your attention in a while.<br>
+                        To START click on button bellow.
+                    </p>
+                </header>
+                <div class='btn btn-danger' ng-disabled="isBegin" ng-click='begin()'>BEGIN</div>
+            </section>
+
+        </aside>
+        <article class="span8" ng-include="templ"></article>
+    </div>
+</section>

@@ -12,7 +12,7 @@
     </div>
 
     <div class='control-group'>
-        <div class='control-label'>Last Name: </div>
+        <div class='control-label'>Last Name:</div>
         <div class='controls'>
             <input type='text' name='lastName' value="{{user.lastName}}"
                    ng-model="user.lastName" placeholder="Set Last Name for User" ng-required="true">
@@ -21,10 +21,10 @@
     </div>
 
     <div class=control-group>
-        <div class='control-label'>e-mail: </div>
+        <div class='control-label'>e-mail:</div>
         <div class='controls'>
             <input type='email' name='email' value='{{user.email}}' ng-required="true"
-                    placeholder="Set e-mail for User" ng-model="user.email">
+                   placeholder="Set e-mail for User" ng-model="user.email">
             <span class='error' ng-show='userForm.email.$error.required'>This field required</span>
             <span class='error' ng-show='userForm.email.$error.email'>Wrong e-mail specified</span>
         </div>
@@ -34,7 +34,7 @@
         <div class='controls'>
             <button ng-click="edit()" class='btn' ng-show="user._id">Edit</button>
             <button ng-click="delete()" class='btn' ng-show="user._id">Delete</button>
-            <button ng-click="save()" class='btn' ng-hide="user._id">Add</button>
+            <button ng-click="edit()" class='btn' ng-hide="user._id">Add</button>
         </div>
     </div>
 

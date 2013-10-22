@@ -1,23 +1,19 @@
 'use strict';
 
-angular.module('yoAngularApp', ['myControllers', 'commonDirectives'])
-.config(function ($routeProvider, $httpProvider) {
-	$httpProvider.defaults.useXDomain = true;
-	delete $httpProvider.defaults.headers.common['X-Requested-With'];
-	$routeProvider
-		.when('/', {
-			templateUrl: 'views/greet.html'
-		})
-		.when('/user/new', {
-			templateUrl: 'views/edit.html',
-			controller: 'newUser'
-		})
-		.when('/user/edit/:_id', {
-			templateUrl: 'views/edit.html',
-			controller: 'editUser'
-		})
-		.otherwise({
-			redirectTo: '/'
-		});
-		//$locationProvider.html5Mode(true);
-});
+angular.module('angularApp', ['user.controllers', 'common.directives', '7min.controllers'])
+	.config(function ($routeProvider) {
+		$routeProvider
+			.when('/', {
+				templateUrl: 'views/greet.html'
+			})
+			.when('/7min', {
+				templateUrl: 'views/7min/index.html'
+			})
+			.when('/user', {
+				templateUrl: 'views/user/index.html',
+				controller: 'userList'
+			})
+			.otherwise({
+				templateUrl:'404.html'
+			});
+	});

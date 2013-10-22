@@ -24,3 +24,30 @@ body {
 .top-dist{
     padding-top: 80px;
 }
+
+.my-dist {
+    padding-top: 50px;
+}
+.left-aside{
+    border-right: 1px solid #EEE;
+}
+.my-badge{
+    display: inline-block;
+}
+.counter{
+    width: 90px;
+    height: 68px;
+    border: solid 3px #19C;
+    border-radius: 45px;
+    padding-top: 22px;
+    font-size: 45px;
+    line-height: 45px;
+}
+.p20{
+    padding: 20px 0;
+}
+.order{
+    font-style: italic;
+    font-size: 45px;
+    line-height: 45px;
+}

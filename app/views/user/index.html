@@ -1,0 +1,30 @@
+<div class="container" >
+    <div class='row'>
+        <div class="span3">
+            <h3>User List</h3>
+            <input type="text" class="input-medium search-query" ng-model='userFilter'>
+
+            <ul ng-if="notEmpty">
+
+                <li ng-repeat='user in users | filter:userFilter'>
+                    <a href='' ng-click="open($index)">
+                        {{ user.firstName }} <span>{{ user.lastName }}</span>
+                    </a>
+                    <button class="close" ng-click='delete($index)'>&times;</button>
+                </li>
+
+            </ul>
+            <a href='' class='btn btn-success' ng-click="open()">Add new</a>
+        </div>
+        <div class='span7' ng-include="target"></div>
+        <div class='span2' ng-controller='Alerts'>
+            <div ng-repeat="alert in alerts">
+                <div class="alert alert-{{alert.type}}">
+                    <button type="button" class="close" data-dismiss="alert" ng-click='close($index)'>&times;</button>
+                    {{alert.message}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
