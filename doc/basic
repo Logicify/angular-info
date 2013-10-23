@@ -30,7 +30,7 @@ In Angular module is the way to define how an application should be bootstrapped
 @see http://docs.angularjs.org/guide/module
 
 ## Filters
-Filters is used for formatting data befor view them to the user.
+Filters is used for formatting data before show them to the user. They are important because they remove the formatting responsibility from the application logic, further simplifying the application logic.
 Common filter usage - <li ng-repeat='user in users | filter:userFilter'>
 Common filters are:
 * filter - selects a subset of items from array and returns it as a new array

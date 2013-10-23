@@ -1,0 +1,23 @@
+## After downloading (cloning) repository:
+1. please run command
+> npm install
+This command require npm (node package manager) to be installed in your computer (@see https://npmjs.org/ for more details about how to install npm).
+
+2. then run command
+> node_modules/bower/bin/bower install
+This will create a folder bower_components in the app folder.
+
+3. To see application in action run command:
+> grunt server
+This will automatically open your browser on the app page.
+
+
+## You can use these command:
+1. to run tests
+> grunt test
+
+2. to create dist directory with minified version of application
+> grunt
+
+3. to run jshint checkout
+> grunt jshint
