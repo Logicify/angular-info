@@ -6,8 +6,10 @@
 
         <div class='controls'>
             <input type="text" name="firstName" value="{{user.firstName}}"
-                   placeholder="Set First Name for User" ng-required="true" ng-model="user.firstName">
+                   placeholder="Set First Name for User" ng-required="true" ng-model="user.firstName"
+                    ng-maxlength="10">
             <span class="error" ng-show="userForm.firstName.$error.required">This field required</span>
+            <span class='error' ng-show="userForm.lastName.$error.maxlength">You should specify no more then 10 characters</span>
         </div>
     </div>
 
@@ -15,8 +17,10 @@
         <div class='control-label'>Last Name:</div>
         <div class='controls'>
             <input type='text' name='lastName' value="{{user.lastName}}"
-                   ng-model="user.lastName" placeholder="Set Last Name for User" ng-required="true">
+                   ng-model="user.lastName" placeholder="Set Last Name for User" ng-required="true"
+                    ng-maxlength="10">
             <span class='error' ng-show="userForm.lastName.$error.required">This field required</span>
+            <span class='error' ng-show="userForm.lastName.$error.maxlength">You should specify no more then 10 characters</span>
         </div>
     </div>
 

@@ -3,7 +3,7 @@
 angular.module('user.controllers', [])
 	.controller('userList', ['$scope', '$rootScope', '$location',
 		function ($scope, $rootScope) {
-			var _target = 'views/user/greet.html', idHelper;
+			var _target = "views/user/greet.html";
 			$scope.users = [
 				{
 					_id: '1',
@@ -28,7 +28,6 @@ angular.module('user.controllers', [])
 				$scope.target = 'views/user/edit.html';
 				if (typeof id !== 'undefined') {
 					$scope.user = users[id];
-					idHelper = id;
 				} else {
 					$scope.user = {};
 				}
@@ -46,11 +45,7 @@ angular.module('user.controllers', [])
 
 			$scope.delete = function (_id) {
 				if (typeof _id === 'undefined') {
-					if (typeof idHelper === 'undefined') {
-						$rootScope.$emit('errorAlert', 'Something wrong');
-						return;
-					}
-					_id = idHelper;
+					_id = $scope.users.indexOf($scope.user);
 				}
 				$scope.users.splice(_id, 1);
 				$scope.target = _target;

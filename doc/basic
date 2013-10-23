@@ -1,0 +1,96 @@
+# Basic Concepts
+
+## Directives
+Directives are a way to teach HTML new tricks. During DOM compilation directives are matched against the HTML and executed. This allows directives to register behavior, or transform the DOM.
+Directives can be included as shown below:
+<span ng-bind="exp"></span>
+	<span class="ng-bind: exp;"></span>
+	<ng-bind></ng-bind>
+Look at directives in app/scripts/directives
+Common angular directives are:
+* ngApp (usage <div ng-app=’myApp’></div>) - use for auto-bootstrap an application and define $rootScope. Only one ngApp directive can be used per HTML document.
+* ngChange (usage <input ng-change=’someFunction()’>) - use to register eventhandler on particular tag
+-ngModel (use in input, select, textarea) - use to bind a field to a property on the $scope
+* ngRepeat (usage <li ng-repeat=’user in users’>{{user.fullName}}</li>) - for iterating over a list. Inside scope we can use these values: $index, $first, $middle, $last, $even, $odd
+@see http://docs.angularjs.org/guide/directive
+
+## VIEW
+This is the result of  DOM transformation based on information in the template, controller and model.
+And view is completely bound to model and controller.
+* view has two-way connections with model.
+* view has connections with controller through directives: ngController, ngView and expression like
+“someContrFunction()” used in event directives (ngClick, ngCopy, ngChange etc.)
+@see http://docs.angularjs.org/guide/dev_guide.mvc.understanding_view
+
+## Module
+In Angular module is the way to define how an application should be bootstrapped.
+* all elements (controllers, directives and others) can be defined in one module. But this approach doesn’t well suited for big applications. In complicated applications highly recommended to split it on some small modules. Where the main of them is the application level module. This concepts well suited for testing purposes.
+* module is the collection of configuration and run blocks, which apply to applications at the bootstrap phase.
+* module can depends of other ones. This dependencies should be place as a second argument of array in module definitions.
+@see http://docs.angularjs.org/guide/module
+
+## Filters
+Filters is used for formatting data befor view them to the user.
+Common filter usage - <li ng-repeat='user in users | filter:userFilter'>
+Common filters are:
+* filter - selects a subset of items from array and returns it as a new array
+* uppercase - converts string to uppercase.
+* lowercase - converts string to lowercase.
+@see: http://docs.angularjs.org/guide/dev_guide.templates.filters
+
+## Model
+Model in Angular can refer to  either a single object representing one entity (for example, a model called "phones" with its value being an array of phones) or the entire data model for the application (all entities).
+A model is any data that is reachable as a property of an angular Scope object. The name of the property is the model identifier and the value is any JavaScript object (including arrays and primitives).
+The only requirement for a JavaScript object to be a model in Angular is that the object must be referenced by an Angular scope as a property of that scope object. This property reference can be created explicitly or implicitly.
+Explicit declarations are:
+* inside a controller put code like <code>$scope.company = ‘Logicify</code>. And company - is the reference to the model which is shown as Logicify.
+* inside template like an angular expression: <button ng-click=”{{company=’Logicify’}}”
+* inside ngInit directive: <body ng-init=”company = ‘Logicify’” >.
+Implicit declarations are:
+* inside an element of inputting (usage <input ng-model=’query’>)
+* inside a ngRepeat (<p ng-repeat=’phone in phones’></p>)
+@see http://docs.angularjs.org/guide/dev_guide.mvc.understanding_model
+
+## Scope
+Scope is an object that refers to the application model. It is an execution context for expressions. Scopes are arranged in hierarchical structure which mimic the DOM structure of the application. Scopes can watch expressions and propagate events (emit - for parents и broadcast - for childs).
+There is one $rootScope and many child $scopes
+@see http://docs.angularjs.org/guide/scope
+
+## Service
+Angular services are singletons objects or functions that carry out specific tasks common to web apps.
+Services can be used by other service, filtre, controller or directive.
+Common services:
+* $compile - (usage $compile(element.contents())(scope);) compiles a piece of HTML string or DOM into a template and produces a template function, which can then be used to link scope and the template together.
+* $http is a core Angular service that facilitates communication with the remote HTTP servers via the browser's XMLHttpRequest object or via JSONP.
+* $timeout is the angular's wrapper for window.setTimeout (use this instead of setTimeout)
+* $interval is the angular's wrapper for window.setInterval.
+* $location parses the URL in the browser address bar (based on the window.location) and makes the URL available to your application
+@see http://docs.angularjs.org/guide/dev_guide.services.understanding_services
+
+## Template
+This is a static DOM which has html, css and angular’s encoding (directives, inner layout {{}}, filters, form controllers). As template we can use:
+* a static html file
+* a <script type=’text/ng-template’ id=’/tpl.html’></script>
+* a function that returns a path to an html template
+@see http://docs.angularjs.org/guide/dev_guide.templates
+@see http://docs.angularjs.org/api/ng.$templateCache
+
+## Controller
+In Angular, a Controller is a JavaScript constructor function that is used to augment the Angular Scope.
+Controllers provide ‘Scope Object’ initialization and add behaviours for this Object.
+Controller should be a pretty simple and short. It have to consist only from business logic.
+You are not allowed to use controllers for:
+* any kind of DOM manipulation
+* input formatting — Use angular form controls instead
+* output filtering — Use angular filters instead
+* sharing stateless or stateful code across Controllers — Use angular services instead
+* managing the life-cycle of other components (for example, to create service instances)
+To include controller in the view:
+* use ngController directive
+* use $routeService
+@see http://docs.angularjs.org/guide/dev_guide.mvc.understanding_controller
+
+## Route
+$route is used for deep-linking URLs to controllers and views (HTML partials). It watches $location.url() and tries to map the path to an existing route definition.
+Routes are the part of module ngRoute which is placed in the angular-route.js file and need to be included in the index.html. It uses API $routeProvider for define and $routeParams service.
+@see http://docs.angularjs.org/api/ngRoute.$route

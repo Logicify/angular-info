@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 describe('This is the first test', function(){
 	it('testing how runs karma', function(){

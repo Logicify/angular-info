@@ -1,0 +1,29 @@
+<div ng-controller="CountDown" ng-cloak="true">
+    <h1>A Simple Coach!</h1>
+
+    <p>Please do all it will tell you.</p>
+
+    <div ng-show="inAction">
+        <div class='row'>
+            <div class="my-badge span4">
+                <h5>{{stage.title}}</h5>
+
+                <p class='order'>{{stage.description}}</p>
+            </div>
+            <div class="my-badge counter text-center">
+                {{countdown}}
+            </div>
+        </div>
+        <div class='row p20 text-center'>
+            <div class="progress span6">
+                <div class="bar" style="width: {{progress}}%;"></div>
+            </div>
+        </div>
+    </div>
+    <div ng-hide="inAction">
+        <p>To start click on button </p>
+    </div>
+    <div class='btn btn-danger' ng-click='stop()' ng-show="isStarted">STOP</div>
+    <span class='btn btn-primary' ng-click='start()' ng-hide="isStarted">START</span>
+
+</div>
