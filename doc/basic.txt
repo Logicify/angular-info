@@ -66,6 +66,7 @@ Common services:
 * $interval is the angular's wrapper for window.setInterval.
 * $location parses the URL in the browser address bar (based on the window.location) and makes the URL available to your application
 @see http://docs.angularjs.org/guide/dev_guide.services.understanding_services
+@see http://iffycan.blogspot.com.ar/2013/05/angular-service-or-factory.html
 
 ## Template
 This is a static DOM which has html, css and angular’s encoding (directives, inner layout {{}}, filters, form controllers). As template we can use:
