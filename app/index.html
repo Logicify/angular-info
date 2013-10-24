@@ -43,7 +43,11 @@
     </section>
 </header>
 <article class='my-dist' ng-view id='container'></article>
-
+<div class='my-dist'></div>
+<section class="container">
+    <div lg-tab title='User'>This part shows how we can use Angular to collect user data</div>
+    <div lg-tab title='7 min'>This part shows an attempt to repeat a project <a href='http://www.7-min.com/'>7Min</a></div>
+</section>
 <script src="bower_components/jquery/jquery.js"></script>
 <script src="bower_components/angular/angular.js"></script>
 
@@ -71,6 +75,7 @@
 <script src="scripts/app.js"></script>
 <script src="scripts/controllers/user.js"></script>
 <script src="scripts/directives/common.js"></script>
+<script src="scripts/directives/tabs.js"></script>
 <script src="scripts/controllers/7min.js"></script>
 <script src="scripts/services/7min.js"></script>
 <!-- endbuild -->

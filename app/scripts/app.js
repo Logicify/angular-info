@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularApp', ['user.controllers', 'common.directives', '7min.controllers'])
+angular.module('angularApp', ['user.controllers', 'common.directives', '7min.controllers', 'Logicify.directives'])
 	.config(function ($routeProvider) {
 		$routeProvider
 			.when('/', {
