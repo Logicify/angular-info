@@ -8,16 +8,16 @@ This command require npm (node package manager) to be installed in your computer
 This will create a folder bower_components in the app folder.
 
 3. To see application in action run command:
-> grunt server
+> node_modules/grunt-cli/bin/grunt server
 This will automatically open your browser on the app page.
 
 
 ## You can use these command:
 1. to run tests
-> grunt test
+> node_modules/grunt-cli/bin/grunt test
 
 2. to create dist directory with minified version of application
 > grunt
 
 3. to run jshint checkout
-> grunt jshint
+> node_modules/grunt-cli/bin/grunt jshint
